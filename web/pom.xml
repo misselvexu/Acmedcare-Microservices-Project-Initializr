@@ -36,6 +36,12 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.acmedcare.framework</groupId>
+            <artifactId>spring-boot-starter-acmedcare-banner</artifactId>
+            <version>2.1.0-RC1</version>
+        </dependency>
+
     </dependencies>
 
 </project>

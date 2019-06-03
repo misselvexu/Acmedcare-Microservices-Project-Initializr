@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.ico">
     <title>Acmedcare+ Initializr</title>
-    <link href="css/1.bundle-720de57a7bc22b3baa58c56a82677a39.css" rel="stylesheet">
-    <link href="css/bundle-9bc3bb672dff6e9da5a706bdfbed07a4.css" rel="stylesheet">
+    <link href="css/fontawesome-bundle.css" rel="stylesheet">
+    <link href="css/fontawesome-bundle-ma.css" rel="stylesheet">
     <meta content='The quickest way to generate Spring Boot projects. Simply choose the language, build system and JVM version for the project.  The site also provides a curated list of dependencies that you can add to your application based on the selected Spring Boot version.'
           name='description' xml:lang='EN'>
 </head>
@@ -33,7 +34,7 @@
                         c1.7-0.1,3.5-0.1,5.5-0.1c3.7,0,7.6,0.1,11.7,0.3c4.4,0.1,8.9,0.3,13.5,0.3c18.5,0,39-2.2,51.1-18.4c14.1-18.8,14.2-48.3,0.1-90.2
                         L139.1,2.1L139.1,2.1z"/></g>
 </svg>
-                <strong>Spring <span>Initializr</span></strong>Bootstrap your application</a>
+                <strong>Acmedcare+ <span>Initializr</span></strong>Bootstrap your application</a>
         </h1>
     </div>
     <form name="form" action="/starter.zip" method="get" autocomplete="off">
@@ -82,27 +83,27 @@
                     <div class="control"><label>Artifact</label>
                         <input class="control-text" name="artifactId" value="demo" tabindex="2">
                     </div>
+                    <div class="control"><label>Version</label>
+                        <input class="control-text" name="version" value="2.1.0.BUILD-SNAPSHOT">
+                    </div>
                     <div class="control"><label>Name</label>
                         <input class="control-text" name="name" value="demo">
                     </div>
                     <div class="control"><label>Description</label>
-                        <input class="control-text" name="description" value="Demo project for Spring Boot">
+                        <input class="control-text" name="description" value="Demo project for Acmedcare+ Micro-service">
                     </div>
                     <div class="control"><label>Package Name</label>
                         <input class="control-text" name="packageName" value="com.example.demo">
                     </div>
-                    <div class="control"><label>Packaging</label>
+                    <div class="control" style="display: none"><label>Packaging</label>
                         <div class="radios">
                             <div class="radio active">
                                 <a href="javascript:void(-1);" data-value="jar">Jar</a>
                             </div>
                             <input type="hidden" name="packaging" value="jar">
-                            <div class="radio">
-                                <a href="javascript:void(-1);" data-value="war">War</a>
-                            </div>
                         </div>
                     </div>
-                    <div class="control"><label>Java Version</label>
+                    <div class="control" style="display: none"><label>Java Version</label>
                         <div class="radios">
                             <div class="radio active">
                                 <a href="javascript:void(-1);" data-value="1.8">8</a>
@@ -133,7 +134,7 @@
 <script src="js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="js/mousetrap.min.js" crossorigin="anonymous"></script>
-<script src="js/1.chunk.js"></script>
-<script src="js/app.js"></script>
+<script src="js/main-chunk.js"></script>
+<script src="js/main.app.js"></script>
 </body>
 </html>
