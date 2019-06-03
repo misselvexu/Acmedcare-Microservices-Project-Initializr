@@ -25,6 +25,7 @@
     <properties>
         <!-- Deploy Properties -->
         <maven.deploy.skip>false</maven.deploy.skip>
+        <project.base.dir>${project.basedir}</project.base.dir>
 
         <!-- base properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

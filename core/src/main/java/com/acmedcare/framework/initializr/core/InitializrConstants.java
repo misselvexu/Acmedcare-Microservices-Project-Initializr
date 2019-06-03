@@ -1,12 +1,12 @@
 package com.acmedcare.framework.initializr.core;
 
 /**
- * {@link InitializrProperties}
+ * {@link InitializrConstants}
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  * @version ${project.version} - 2019-06-03.
  */
-public class InitializrProperties {
+public class InitializrConstants {
 
   private static final String HOME_ENV_PROPERTIES = "acmedcare.initializr.home";
 
@@ -17,8 +17,10 @@ public class InitializrProperties {
    */
   public static String home = home();
 
+  public static final String CREATED_DIR = "/created";
+
   private static String home() {
-    return InitializrProperties.home = System.getProperty(HOME_ENV_PROPERTIES);
+    return InitializrConstants.home = System.getProperty(HOME_ENV_PROPERTIES);
   }
 
   // === other system properties

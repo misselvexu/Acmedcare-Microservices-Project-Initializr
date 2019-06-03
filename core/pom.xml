@@ -13,4 +13,12 @@
     <version>2.1.0.BUILD-SNAPSHOT</version>
 
     <name>Acmedcare+ Micro-services Project Initializr Core :: ${project.version}</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
