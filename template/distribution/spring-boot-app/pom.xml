@@ -4,14 +4,14 @@
 
     <parent>
         <groupId>${rootGroupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${rootVersion}</version>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${rootArtifactId}-spring-boot-app</artifactId>
+    <artifactId>${__artifactId__}-spring-boot-app</artifactId>
 
-    <name>Acmedcare+ Micro-services Project Spring Boot Distribution Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Spring Boot Distribution Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Spring Boot Distribution Module</description>
 
     <properties>

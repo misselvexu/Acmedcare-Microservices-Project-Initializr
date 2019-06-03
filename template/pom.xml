@@ -8,12 +8,12 @@
         <version>2.1.0.RELEASE</version>
     </parent>
 
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
-    <version>${version}</version>
+    <groupId>${__groupId__}</groupId>
+    <artifactId>${__artifactId__}</artifactId>
+    <version>${__version__}</version>
     <packaging>pom</packaging>
 
-    <name>Acmedcare+ Micro-services Project Parent :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Parent :: ${project.version}</name>
     <description>🏗 Acmedcare+ Micro-services Project</description>
     <inceptionYear>2019</inceptionYear>
 
@@ -104,44 +104,44 @@
             <!-- Acmedcare+ Template Lib Defined -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-api</artifactId>
+                <artifactId>${__artifactId__}-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-client</artifactId>
+                <artifactId>${__artifactId__}-client</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-core</artifactId>
+                <artifactId>${__artifactId__}-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-common</artifactId>
+                <artifactId>${__artifactId__}-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-endpoint</artifactId>
+                <artifactId>${__artifactId__}-endpoint</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-test</artifactId>
+                <artifactId>${__artifactId__}-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-repository</artifactId>
+                <artifactId>${__artifactId__}-repository</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>

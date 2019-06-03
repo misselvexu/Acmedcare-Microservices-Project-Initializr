@@ -1,4 +1,4 @@
-package ${package}.test.endpoint;
+package ${__package__}.test.endpoint;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

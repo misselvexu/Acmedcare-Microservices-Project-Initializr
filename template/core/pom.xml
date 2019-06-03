@@ -3,16 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${version}</version>
+        <groupId>${__groupId__}</groupId>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${artifactId}-core</artifactId>
-    <version>${version}</version>
+    <artifactId>${__artifactId__}-core</artifactId>
+    <version>${__version__}</version>
 
-    <name>Acmedcare+ Micro-services Project Core Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Core Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Core Module</description>
 
     <properties>
@@ -31,12 +31,12 @@
         <!-- Module Libs -->
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>${rootArtifactId}-api</artifactId>
+            <artifactId>${__artifactId__}-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>${rootArtifactId}-common</artifactId>
+            <artifactId>${__artifactId__}-common</artifactId>
         </dependency>
 
         <!-- Common Kits -->

@@ -4,15 +4,15 @@
 
     <parent>
         <groupId>${rootGroupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${rootVersion}</version>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${rootArtifactId}-client</artifactId>
+    <artifactId>${__artifactId__}-client</artifactId>
     <packaging>pom</packaging>
 
-    <name>Acmedcare+ Micro-services Project Client Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Client Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Client Module</description>
 
 
@@ -31,13 +31,13 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${rootArtifactId}-openfeign-client</artifactId>
+                <artifactId>${__artifactId__}-openfeign-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.acmedcare.framework</groupId>
-                <artifactId>${rootArtifactId}-client-sample</artifactId>
+                <artifactId>${__artifactId__}-client-sample</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

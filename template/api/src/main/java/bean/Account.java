@@ -1,10 +1,8 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.bean;
+
+package ${__package__}.bean;
 
 import com.acmedcare.framework.common.SerializableBean;
-import ${package}.Constants;
+import ${__package__}.Constants;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;

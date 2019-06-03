@@ -1,9 +1,7 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.repository.handler;
 
-import ${package}.Constants;
+package ${__package__}.repository.handler;
+
+import ${__package__}.Constants;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.slf4j.Logger;

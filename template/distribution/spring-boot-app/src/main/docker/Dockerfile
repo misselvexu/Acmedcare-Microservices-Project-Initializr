@@ -1,13 +1,13 @@
-# Dockerfile for ${artifactId}-distribution-spring-boot-app
+# Dockerfile for ${__artifactId__}-distribution-spring-boot-app
 # Build with:
-# docker build -t ${artifactId}-distribution-spring-boot-app .
+# docker build -t ${__artifactId__}-distribution-spring-boot-app .
 # Run with:
-# docker run -p 9090:9090 -d -v /tmp/logs:/opt/logs --name ${artifactId}-distribution-spring-boot-app ${artifactId}-distribution-spring-boot-app
+# docker run -p 9090:9090 -d -v /tmp/logs:/opt/logs --name ${__artifactId__}-distribution-spring-boot-app ${__artifactId__}-distribution-spring-boot-app
 
 FROM openjdk:8-jre-alpine
 MAINTAINER Elve.Xu <iskp.me@gmail.com>
 
-ENV IN_VERSION ${version}
+ENV IN_VERSION ${__version__}
 
 RUN echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories \
     && echo "http://mirrors.aliyun.com/alpine/v3.6/community" >> /etc/apk/repositories \
@@ -16,13 +16,13 @@ RUN echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone
 
-ADD ${artifactId}-distribution-spring-boot-app-${IN_VERSION}.zip /${artifactId}-distribution-spring-boot-app/${artifactId}-distribution-spring-boot-app-${IN_VERSION}.zip
+ADD ${__artifactId__}-distribution-spring-boot-app-${IN_VERSION}.zip /${__artifactId__}-distribution-spring-boot-app/${__artifactId__}-distribution-spring-boot-app-${IN_VERSION}.zip
 
-RUN unzip /${artifactId}-distribution-spring-boot-app/${artifactId}-distribution-spring-boot-app-${IN_VERSION}.zip -d /${artifactId}-distribution-spring-boot-app \
-    && rm -rf /${artifactId}-distribution-spring-boot-app/${artifactId}-distribution-spring-boot-app-${IN_VERSION}.zip \
-    && sed -i '$d' /${artifactId}-distribution-spring-boot-app/bin/startup.sh \
-    && echo "tail -f /dev/null" >> /${artifactId}-distribution-spring-boot-app/bin/startup.sh
+RUN unzip /${__artifactId__}-distribution-spring-boot-app/${__artifactId__}-distribution-spring-boot-app-${IN_VERSION}.zip -d /${__artifactId__}-distribution-spring-boot-app \
+    && rm -rf /${__artifactId__}-distribution-spring-boot-app/${__artifactId__}-distribution-spring-boot-app-${IN_VERSION}.zip \
+    && sed -i '$d' /${__artifactId__}-distribution-spring-boot-app/bin/startup.sh \
+    && echo "tail -f /dev/null" >> /${__artifactId__}-distribution-spring-boot-app/bin/startup.sh
 
 EXPOSE 9090
 
-CMD ["/${artifactId}-distribution-spring-boot-app/bin/startup.sh"]
+CMD ["/${__artifactId__}-distribution-spring-boot-app/bin/startup.sh"]

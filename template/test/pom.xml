@@ -4,15 +4,15 @@
 
     <parent>
         <groupId>${rootGroupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${rootVersion}</version>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${rootArtifactId}-test</artifactId>
+    <artifactId>${__artifactId__}-test</artifactId>
     <packaging>jar</packaging>
 
-    <name>Acmedcare+ Micro-services Project Test Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Test Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Test Module</description>
 
     <properties>
@@ -35,7 +35,7 @@
 
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>${rootArtifactId}-endpoint</artifactId>
+            <artifactId>${__artifactId__}-endpoint</artifactId>
         </dependency>
     </dependencies>
     

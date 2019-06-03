@@ -1,7 +1,7 @@
 # AutoConfiguration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  ${package}.repository.mybatis.autoconfigure.MybatisMapperAutoConfiguration
+  ${__package__}.repository.mybatis.autoconfigure.MybatisMapperAutoConfiguration
 
 # EnvironmentPostProcessor
 org.springframework.boot.env.EnvironmentPostProcessor=\
-  ${package}.repository.mybatis.env.MybatisPropertiesEnvironmentPostProcessor
+  ${__package__}.repository.mybatis.env.MybatisPropertiesEnvironmentPostProcessor

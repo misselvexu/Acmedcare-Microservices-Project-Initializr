@@ -1,16 +1,14 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.endpoint;
+
+package ${__package__}.endpoint;
 
 import com.acmedcare.framework.exception.defined.BizServiceException;
 import com.acmedcare.framework.exception.defined.InvalidRequestParamException;
 import com.acmedcare.framework.exception.entity.EntityBody;
 import com.acmedcare.framework.kits.StringUtils;
-import ${package}.bean.Account;
-import ${package}.common.log.LogDefined;
-import ${package}.endpoint.service.AccountService;
-import ${package}.response.AccountResponse;
+import ${__package__}.bean.Account;
+import ${__package__}.common.log.LogDefined;
+import ${__package__}.endpoint.service.AccountService;
+import ${__package__}.response.AccountResponse;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +47,7 @@ public class AccountEndpoint {
    *
    * @param passport 账号
    * @return 用户详情
-   * @see ${package}.bean.Account
+   * @see ${__package__}.bean.Account
    */
   @ApiOperation(value = "查询用户详情", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   @ApiResponses({

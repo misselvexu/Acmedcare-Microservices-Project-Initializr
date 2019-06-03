@@ -1,6 +1,6 @@
 #!/bin/bash
-SERVICE_NAME=${artifactId}-distribution-spring-boot-app
-SERVICE_VERSION=${version}
+SERVICE_NAME=${__artifactId__}-distribution-spring-boot-app
+SERVICE_VERSION=${__version__}
 # Copyright 1999-2018 Acmedcare+ Group Holding Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${version}</version>
+        <groupId>${__groupId__}</groupId>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${artifactId}-repository</artifactId>
-    <version>${version}</version>
+    <artifactId>${__artifactId__}-repository</artifactId>
+    <version>${__version__}</version>
     <packaging>pom</packaging>
 
-    <name>Acmedcare+ Micro-services Project Repository Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Repository Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Repository Module</description>
 
     <properties>
@@ -23,8 +23,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-api</artifactId>
+            <groupId>${__groupId__}</groupId>
+            <artifactId>${__artifactId__}-api</artifactId>
         </dependency>
     </dependencies>
 
@@ -38,13 +38,13 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-api</artifactId>
+                <artifactId>${__artifactId__}-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${artifactId}-mybatis-support</artifactId>
+                <artifactId>${__artifactId__}-mybatis-support</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

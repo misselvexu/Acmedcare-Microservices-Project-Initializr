@@ -1,12 +1,10 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.endpoint.service;
+
+package ${__package__}.endpoint.service;
 
 import com.acmedcare.framework.exception.defined.BizServiceException;
 import com.acmedcare.framework.exception.defined.RepositoryException;
-import ${package}.bean.Account;
-import ${package}.repository.AccountRepository;
+import ${__package__}.bean.Account;
+import ${__package__}.repository.AccountRepository;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

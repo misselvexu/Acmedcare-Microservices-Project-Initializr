@@ -1,6 +1,4 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
+
 /*
  * Copyright 1999-2018 Alibaba Group Holding Ltd.
  *
@@ -16,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ${package}.repository.mybatis.env;
+package ${__package__}.repository.mybatis.env;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;

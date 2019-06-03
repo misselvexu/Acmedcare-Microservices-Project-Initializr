@@ -1,10 +1,8 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.user//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${package}.repository.AccountRepository">
+<mapper namespace="${__package__}.repository.AccountRepository">
 
 
     <select id="queryAccount" resultMap="queryAccountResultMap" parameterType="java.lang.String">
@@ -22,15 +20,15 @@
     </select>
 
 
-    <resultMap id="queryAccountResultMap" type="${package}.bean.Account">
+    <resultMap id="queryAccountResultMap" type="${__package__}.bean.Account">
         <result column="pkid" jdbcType="BIGINT" property="pkid"/>
         <result column="passport" jdbcType="VARCHAR" property="passport"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="salt" jdbcType="VARCHAR" property="salt"/>
-        <result column="status" javaType="${package}.Constants$AccountStatus"
+        <result column="status" javaType="${__package__}.Constants$AccountStatus"
                 jdbcType="VARCHAR"
-                typeHandler="${package}.repository.handler.AccountStatusTypeHandler"
+                typeHandler="${__package__}.repository.handler.AccountStatusTypeHandler"
                 property="status"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="upgrade_time" jdbcType="TIMESTAMP" property="upgradeTime"/>

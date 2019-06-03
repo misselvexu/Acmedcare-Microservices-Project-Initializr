@@ -1,10 +1,8 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.repository;
+
+package ${__package__}.repository;
 
 import com.acmedcare.framework.exception.defined.RepositoryException;
-import ${package}.bean.Account;
+import ${__package__}.bean.Account;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

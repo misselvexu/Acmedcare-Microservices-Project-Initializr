@@ -4,15 +4,15 @@
 
     <parent>
         <groupId>${rootGroupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${rootVersion}</version>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${rootArtifactId}-distribution</artifactId>
+    <artifactId>${__artifactId__}-distribution</artifactId>
     <packaging>pom</packaging>
 
-    <name>Acmedcare+ Micro-services Project Distribution Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Distribution Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Distribution Module</description>
 
     <modules>
@@ -29,7 +29,7 @@
     <dependencies>
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>${rootArtifactId}-endpoint</artifactId>
+            <artifactId>${__artifactId__}-endpoint</artifactId>
         </dependency>
     </dependencies>
 

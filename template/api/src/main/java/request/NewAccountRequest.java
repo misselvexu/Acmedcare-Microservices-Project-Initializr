@@ -1,7 +1,5 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.request;
+
+package ${__package__}.request;
 
 import com.acmedcare.framework.common.SerializableBean;
 import com.acmedcare.framework.common.request.RequestValidator;

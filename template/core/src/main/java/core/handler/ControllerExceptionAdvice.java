@@ -1,7 +1,5 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.core.handler;
+
+package ${__package__}.core.handler;
 
 import com.acmedcare.framework.exception.defined.BizServiceException;
 import com.acmedcare.framework.exception.entity.EntityBody;

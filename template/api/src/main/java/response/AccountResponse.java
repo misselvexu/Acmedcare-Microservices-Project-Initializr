@@ -1,13 +1,11 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.response;
+
+package ${__package__}.response;
 
 import com.acmedcare.framework.common.SerializableBean;
 import com.acmedcare.framework.kits.BeanUtils;
 import com.acmedcare.framework.kits.jackson.JacksonDateFormat;
-import ${package}.Constants;
-import ${package}.bean.Account;
+import ${__package__}.Constants;
+import ${__package__}.bean.Account;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

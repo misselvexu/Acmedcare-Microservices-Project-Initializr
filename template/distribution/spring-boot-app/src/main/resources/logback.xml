@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="log.context.name" value="${artifactId}"/>
+    <property name="log.context.name" value="${__artifactId__}"/>
     <property name="log.charset" value="UTF-8"/>
     <property name="log.pattern" value="[%-5level] ${PID} %date --%thread-- [%logger] %msg %n"/>
     <property name="FILE_LOG_PATTERN" value="[%-5level] ${PID} %date --%thread-- [%logger] %msg %n"/>
 
     <!-- From Spring Boot Default Logger-->
-    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}${artifactId}.log}"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}${__artifactId__}.log}"/>
     <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
     <contextName>${log.context.name}</contextName>

@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${version}</version>
+        <groupId>${__groupId__}</groupId>
+        <artifactId>${__artifactId__}</artifactId>
+        <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${rootArtifactId}-mybatis-support</artifactId>
+    <artifactId>${__artifactId__}-mybatis-support</artifactId>
 
-    <name>Acmedcare+ Micro-services Project Repository Mybatis Module :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services ${__name__} Project Repository Mybatis Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Repository Mybatis Module</description>
 
     <properties>
