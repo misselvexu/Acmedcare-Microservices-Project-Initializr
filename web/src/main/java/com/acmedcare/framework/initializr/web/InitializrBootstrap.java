@@ -1,7 +1,10 @@
 package com.acmedcare.framework.initializr.web;
 
+import com.acmedcare.framework.initializr.core.TemplateFileProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 
 /**
  * {@link InitializrBootstrap}
@@ -10,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version ${project.version} - 2019-06-03.
  */
 @SpringBootApplication
+@ComponentScans(@ComponentScan(basePackageClasses = TemplateFileProcessor.class))
 public class InitializrBootstrap {
 
   public static void main(String[] args) {

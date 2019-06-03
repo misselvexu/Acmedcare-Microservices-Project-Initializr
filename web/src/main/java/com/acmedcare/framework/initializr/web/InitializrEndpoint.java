@@ -1,5 +1,6 @@
 package com.acmedcare.framework.initializr.web;
 
+import com.acmedcare.framework.initializr.core.TemplateFileProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -20,6 +21,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class InitializrEndpoint {
 
   private static final Logger log = LoggerFactory.getLogger(InitializrEndpoint.class);
+
+  private final TemplateFileProcessor fileProcessor;
+
+  public InitializrEndpoint(TemplateFileProcessor fileProcessor) {
+    this.fileProcessor = fileProcessor;
+  }
 
   @GetMapping("/")
   public ModelAndView index() {
@@ -47,8 +54,6 @@ public class InitializrEndpoint {
       @RequestParam(required = false, defaultValue = "") String description,
       @RequestParam(required = false, defaultValue = "jar") String packaging,
       @RequestParam(required = false, defaultValue = "1.8") String javaVersion) {
-
-
 
     return null;
   }

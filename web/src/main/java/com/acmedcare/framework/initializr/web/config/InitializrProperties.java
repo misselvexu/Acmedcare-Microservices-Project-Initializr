@@ -1,6 +1,7 @@
 package com.acmedcare.framework.initializr.web.config;
 
 import com.acmedcare.framework.initializr.core.InitializrConstants;
+import com.acmedcare.framework.initializr.core.InitializrProcessorProperties;
 import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +31,8 @@ import static com.acmedcare.framework.initializr.core.InitializrConstants.CREATE
 @Setter
 @Component
 @ConfigurationProperties(prefix = "acmedcare.micro-services.initializr")
-public class InitializrProperties implements Serializable, InitializingBean {
+public class InitializrProperties extends InitializrProcessorProperties
+    implements Serializable, InitializingBean {
 
   private static final Logger log = LoggerFactory.getLogger(InitializrProperties.class);
 
