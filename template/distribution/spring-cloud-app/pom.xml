@@ -3,29 +3,61 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.acmedcare.framework</groupId>
-        <artifactId>microservices-initializr</artifactId>
-        <version>2.1.0.BUILD-SNAPSHOT</version>
+        <groupId>${rootGroupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${rootVersion}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>initializr-web</artifactId>
-    <version>2.1.0.BUILD-SNAPSHOT</version>
+    <artifactId>${rootArtifactId}-spring-cloud-app</artifactId>
 
-    <name>Acmedcare+ Micro-services Project Initializr Website :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services Project Spring Cloud Distribution Module :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Spring Cloud Distribution Module</description>
+
+    <properties>
+        <!-- Deploy Properties -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
 
     <dependencies>
 
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>initializr-core</artifactId>
+            <artifactId>spring-boot-starter-acmedcare-banner</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>xyz.vopen.tiffany</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Libs -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- Server libs -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -42,13 +74,55 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
+        <!-- JDBC Maven libs -->
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
-            <artifactId>spring-boot-starter-acmedcare-banner</artifactId>
-            <version>2.1.0-RC1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Config -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
     </dependencies>
+
+
+    <profiles>
+        <!-- Nacos -->
+        <profile>
+            <id>nacos</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <!-- Nacos Service Discovery -->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>eureka</id>
+            <dependencies>
+                <!-- Eureka Service Discovery -->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
+
 
     <build>
         <plugins>

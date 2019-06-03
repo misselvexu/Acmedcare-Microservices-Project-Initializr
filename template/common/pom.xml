@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${artifactId}-common</artifactId>
+    <version>${version}</version>
+
+    <name>Acmedcare+ Micro-services Project Common Module :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Common Module</description>
+
+    <properties>
+        <!-- Deploy Properties -->
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.acmedcare.framework.kits</groupId>
+            <artifactId>common-kits</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.acmedcare.framework</groupId>
+            <artifactId>exception-api</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${rootGroupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${rootVersion}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${rootArtifactId}-client</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Acmedcare+ Micro-services Project Client Module :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Client Module</description>
+
+
+    <modules>
+        <module>spring-cloud-openfeign-client</module>
+        <module>spring-cloud-openfeign-client-sample</module>
+    </modules>
+
+    <properties>
+        <!-- Deploy Properties -->
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${rootArtifactId}-openfeign-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.acmedcare.framework</groupId>
+                <artifactId>${rootArtifactId}-client-sample</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

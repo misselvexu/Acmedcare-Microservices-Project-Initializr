@@ -3,27 +3,32 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.acmedcare.framework</groupId>
-        <artifactId>microservices-initializr</artifactId>
-        <version>2.1.0.BUILD-SNAPSHOT</version>
+        <groupId>${rootGroupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${rootVersion}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>initializr-web</artifactId>
-    <version>2.1.0.BUILD-SNAPSHOT</version>
+    <artifactId>${rootArtifactId}-spring-boot-app</artifactId>
 
-    <name>Acmedcare+ Micro-services Project Initializr Website :: ${project.version}</name>
+    <name>Acmedcare+ Micro-services Project Spring Boot Distribution Module :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Spring Boot Distribution Module</description>
+
+    <properties>
+        <!-- Deploy Properties -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
 
     <dependencies>
 
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>initializr-core</artifactId>
+            <artifactId>spring-boot-starter-acmedcare-banner</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <groupId>xyz.vopen.tiffany</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
         </dependency>
 
         <dependency>
@@ -41,14 +46,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.acmedcare.framework</groupId>
-            <artifactId>spring-boot-starter-acmedcare-banner</artifactId>
-            <version>2.1.0-RC1</version>
-        </dependency>
-
     </dependencies>
+
+
 
     <build>
         <plugins>

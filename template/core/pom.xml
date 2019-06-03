@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${artifactId}-core</artifactId>
+    <version>${version}</version>
+
+    <name>Acmedcare+ Micro-services Project Core Module :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Core Module</description>
+
+    <properties>
+        <!-- Deploy Properties -->
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
+    <dependencies>
+
+        <!-- Log -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Module Libs -->
+        <dependency>
+            <groupId>com.acmedcare.framework</groupId>
+            <artifactId>${rootArtifactId}-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.acmedcare.framework</groupId>
+            <artifactId>${rootArtifactId}-common</artifactId>
+        </dependency>
+
+        <!-- Common Kits -->
+        <dependency>
+            <groupId>com.acmedcare.framework.kits</groupId>
+            <artifactId>common-kits</artifactId>
+        </dependency>
+
+        <!-- Spring Web Context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

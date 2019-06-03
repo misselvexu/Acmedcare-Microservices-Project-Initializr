@@ -8,14 +8,14 @@
         <version>2.1.0.RELEASE</version>
     </parent>
 
-    <artifactId>microservices-initializr</artifactId>
-    <version>2.1.0.BUILD-SNAPSHOT</version>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
     <packaging>pom</packaging>
 
-    <name>Acmedcare+ Micro-services Project Initializr Parent :: ${project.version}</name>
-    <description>🏗 Acmedcare+ Micro-services Project Initializr</description>
+    <name>Acmedcare+ Micro-services Project Parent :: ${project.version}</name>
+    <description>🏗 Acmedcare+ Micro-services Project</description>
     <inceptionYear>2019</inceptionYear>
-    <url>http://115.29.47.72:8082/acmedback/Acmedcare-Microservices-Project-Initializr</url>
 
     <organization>
         <name>The Acmedcare+ Organization</name>
@@ -54,9 +54,9 @@
     </properties>
 
     <scm>
-        <url>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Initializr.git</url>
-        <connection>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Initializr.git</connection>
-        <developerConnection>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Initializr.git
+        <url>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Template.git</url>
+        <connection>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Template.git</connection>
+        <developerConnection>scm:git:git@115.29.47.72:acmedback/Acmedcare-Microservices-Project-Template.git
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
@@ -87,8 +87,14 @@
     </developers>
 
     <modules>
+        <module>api</module>
+        <module>common</module>
         <module>core</module>
-        <module>web</module>
+        <module>client</module>
+        <module>endpoint</module>
+        <module>distribution</module>
+        <module>repository</module>
+        <module>test</module>
     </modules>
 
 
@@ -97,9 +103,47 @@
 
             <!-- Acmedcare+ Template Lib Defined -->
             <dependency>
-                <groupId>com.acmedcare.framework</groupId>
-                <artifactId>initializr-core</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-api</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-client</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-endpoint</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${artifactId}-repository</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
             </dependency>
 
             <!-- Spring Cloud Dependency  -->
