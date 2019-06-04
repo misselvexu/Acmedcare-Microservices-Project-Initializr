@@ -31,13 +31,13 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${__artifactId__}-openfeign-client</artifactId>
+                <artifactId>${__artifactId__}-client-openfeign-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.acmedcare.framework</groupId>
-                <artifactId>${__artifactId__}-client-sample</artifactId>
+                <artifactId>${__artifactId__}-client-client-sample</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

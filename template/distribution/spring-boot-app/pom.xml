@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>${__groupId__}</groupId>
-        <artifactId>${__artifactId__}</artifactId>
+        <artifactId>${__artifactId__}-distribution</artifactId>
         <version>${__version__}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
