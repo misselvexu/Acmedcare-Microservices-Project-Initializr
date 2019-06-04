@@ -7,10 +7,14 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * {@link InitializrBean}
@@ -37,6 +41,8 @@ public class InitializrBean implements Serializable {
   private String packaging;
   private String javaVersion;
 
+  private transient CountDownLatch waitLatch;
+
   // === methods
 
   public String renderPath(String baseDir) throws InitializrException {
@@ -53,7 +59,9 @@ public class InitializrBean implements Serializable {
             .concat(File.separator)
             .concat(version)
             .concat(File.separator)
-            .concat(name);
+            .concat(name)
+            .concat(File.separator)
+            .concat(packageName);
 
     String result = baseDir.concat(File.separator).concat(createdPath);
 
@@ -68,6 +76,27 @@ public class InitializrBean implements Serializable {
     }
 
     return result;
+  }
+
+  public String sha1() throws InitializrException {
+    try {
+      String content =
+          this.groupId
+              .concat("#")
+              .concat(this.artifactId)
+              .concat("#")
+              .concat(this.version)
+              .concat("#")
+              .concat(this.name)
+              .concat("#")
+              .concat(this.packageName);
+
+      return new String(
+          MessageDigest.getInstance("SHA").digest(content.getBytes(Charset.defaultCharset())),
+          Charset.defaultCharset());
+    } catch (NoSuchAlgorithmException e) {
+      throw new InitializrException(e);
+    }
   }
 
   // === equals & hashcode

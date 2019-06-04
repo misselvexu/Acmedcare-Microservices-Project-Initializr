@@ -4,6 +4,7 @@ import com.acmedcare.framework.exception.defined.InvalidRequestParamException;
 import com.acmedcare.framework.initializr.core.InitializrBean;
 import com.acmedcare.framework.initializr.core.InitializrResult;
 import com.acmedcare.framework.initializr.core.TemplateFileProcessor;
+import com.acmedcare.framework.initializr.web.config.InitializrProperties;
 import com.acmedcare.framework.initializr.web.exception.InitializrException;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
@@ -36,8 +37,11 @@ public class InitializrEndpoint {
 
   private final TemplateFileProcessor fileProcessor;
 
-  public InitializrEndpoint(TemplateFileProcessor fileProcessor) {
+  private final InitializrProperties properties;
+
+  public InitializrEndpoint(TemplateFileProcessor fileProcessor, InitializrProperties properties) {
     this.fileProcessor = fileProcessor;
+    this.properties = properties;
   }
 
   @GetMapping("/")
@@ -88,7 +92,9 @@ public class InitializrEndpoint {
     log.info("Request initializr bean info : {}", JSON.toJSONString(bean));
 
     // process
-    InitializrResult result = this.fileProcessor.process(bean);
+    InitializrResult result =
+        this.fileProcessor.process(
+            this.properties.getTemplateDir(), this.properties.getCreatedZipDir(), bean);
 
     if (result == null || result.getCode() != 0) {
       throw new InitializrException("项目模板初始化失败");

@@ -19,6 +19,8 @@ public class InitializrConstants {
 
   public static final String CREATED_DIR = "/created";
 
+  public static final String PACKAGE_SUFFIX = ".zip";
+
   private static String home() {
     return InitializrConstants.home = System.getProperty(HOME_ENV_PROPERTIES);
   }
