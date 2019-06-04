@@ -57,6 +57,13 @@ public class InitializrConstants {
     public static final String PACKAGE_NAME = "${__package__}";
 
     /**
+     * Version Defined
+     *
+     * <p>
+     */
+    public static final String VERSION = "${__version__}";
+
+    /**
      * Project Name Defined
      *
      * <p>

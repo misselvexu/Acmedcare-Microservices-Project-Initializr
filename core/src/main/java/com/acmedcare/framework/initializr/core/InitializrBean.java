@@ -16,6 +16,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
+import static com.acmedcare.framework.initializr.core.InitializrConstants.Constants.*;
+
 /**
  * {@link InitializrBean}
  *
@@ -124,5 +126,20 @@ public class InitializrBean implements Serializable {
   public int hashCode() {
     return Objects.hash(
         groupId, artifactId, version, name, packageName, description, packaging, javaVersion);
+  }
+
+
+  String rebuild(String fileContent) {
+
+    if (org.apache.commons.lang3.StringUtils.isNoneBlank(fileContent)) {
+      fileContent =
+          fileContent
+              .replace(GROUP_ID, this.groupId)
+              .replace(ARTIFACT_ID, this.artifactId)
+              .replace(VERSION, this.version)
+              .replace(PROJECT_NAME, this.name);
+    }
+
+    return fileContent;
   }
 }

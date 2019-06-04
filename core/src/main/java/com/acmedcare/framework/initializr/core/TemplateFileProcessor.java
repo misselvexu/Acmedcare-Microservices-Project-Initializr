@@ -1,20 +1,26 @@
 package com.acmedcare.framework.initializr.core;
 
 import com.acmedcare.framework.initializr.exception.InitializrException;
+import com.acmedcare.framework.kits.compress.CompressKits;
 import com.acmedcare.framework.kits.struct.ConcurrentHashSet;
 import com.acmedcare.framework.kits.struct.NamedThreadFactory;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.*;
+import java.util.stream.Stream;
 
 import static com.acmedcare.framework.initializr.core.InitializrConstants.PACKAGE_SUFFIX;
 
@@ -73,9 +79,9 @@ public class TemplateFileProcessor {
 
     String fileName = bean.getName().concat(PACKAGE_SUFFIX);
 
-    String expectZipFileName = expectFilePath.concat(PACKAGE_SUFFIX);
+    String expectZipFileFullPath = expectFilePath.concat(PACKAGE_SUFFIX);
 
-    Path expectZipFilePath = Paths.get(expectZipFileName);
+    Path expectZipFilePath = Paths.get(expectZipFileFullPath);
 
     String sha1 = bean.sha1();
 
@@ -84,7 +90,7 @@ public class TemplateFileProcessor {
 
       return InitializrResult.builder()
           .code(0)
-          .destZipFile(expectZipFileName)
+          .destZipFile(expectZipFileFullPath)
           .fileName(fileName)
           .build();
     }
@@ -116,22 +122,53 @@ public class TemplateFileProcessor {
               // task run
               try {
                 // copy directories
+                Path sourceDirectory = Paths.get(templateDir);
+                Path destDirectory = Paths.get(expectFilePath);
+
+                Files.copy(
+                    sourceDirectory,
+                    destDirectory,
+                    StandardCopyOption.REPLACE_EXISTING,
+                    StandardCopyOption.COPY_ATTRIBUTES);
 
                 // list all files
+                Stream<Path> paths = Files.list(destDirectory);
+                paths
+                    .parallel()
+                    .forEach(
+                        path -> {
+                          // multi-process
+                          try {
+                            String fileContent =
+                                FileUtils.readFileToString(path.toFile(), Charset.defaultCharset());
 
-                // multi-process
+                            fileContent = bean.rebuild(fileContent);
 
-                // join result
+                            FileUtils.writeStringToFile(
+                                path.toFile(), fileContent, Charset.defaultCharset(), false);
 
-                // package
+                          } catch (IOException e) {
+                            log.warn(
+                                "[INITIALIZR] template file:{} rebuild failed .",
+                                path.toFile().getAbsolutePath());
+                          }
+                        });
+
+                log.info(
+                    "[INITIALIZR] project :{} processed . dir: {}", bean.getName(), expectFilePath);
+
+                CompressKits.compressZip(expectZipFileFullPath, expectFilePath);
 
                 // build result
+                builder.fileName(fileName).code(0).destZipFile(expectZipFileFullPath);
 
               } catch (Exception e) {
                 log.info(
-                    "[INITIALIZR] task threads {} execute failed .",
+                    "[INITIALIZR] task threads:[{}] execute failed .",
                     Thread.currentThread().getName(),
                     e);
+                // set failed code
+                builder.code(-1).fileName(fileName);
               } finally {
                 executingLatch.countDown();
               }
@@ -154,7 +191,7 @@ public class TemplateFileProcessor {
 
       throw new InitializrException("UNKNOWN EXCEPTION");
     } else {
-      throw new InitializrException("数据一致性异常");
+      throw new InitializrException("INVALID DATA STATUS");
     }
   }
 }
