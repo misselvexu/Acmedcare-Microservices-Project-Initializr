@@ -38,13 +38,13 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${__artifactId__}-api</artifactId>
+                <artifactId>${__artifactId__}-repository-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>${__artifactId__}-mybatis-support</artifactId>
+                <artifactId>${__artifactId__}-repository-mybatis-support</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

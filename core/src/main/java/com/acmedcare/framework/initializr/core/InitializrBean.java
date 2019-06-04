@@ -47,7 +47,7 @@ public class InitializrBean implements Serializable {
 
   // === methods
 
-  public String renderPath(String baseDir) throws InitializrException {
+  public String renderPath(String baseDir, boolean containPackage) throws InitializrException {
 
     if (!StringUtils.endsWithIgnoreCase(baseDir, File.separator)) {
       baseDir = baseDir.concat(File.separator);
@@ -61,23 +61,30 @@ public class InitializrBean implements Serializable {
             .concat(File.separator)
             .concat(version)
             .concat(File.separator)
-            .concat(name)
-            .concat(File.separator)
-            .concat(packageName);
+            .concat(name);
 
-    String result = baseDir.concat(File.separator).concat(createdPath);
+    if (containPackage) {
+      createdPath = createdPath.concat(File.separator).concat(packageName);
+    }
+
+    String result = baseDir.concat(createdPath);
 
     Path path = Paths.get(result);
 
     if (!Files.exists(path)) {
       try {
-        Files.createDirectory(path);
+        Files.createDirectories(path);
       } catch (IOException e) {
+        e.printStackTrace();
         throw new InitializrException("[INITIALIZR] create target dir failed .", e);
       }
     }
 
     return result;
+  }
+
+  public String renderPath(String baseDir) throws InitializrException {
+    return renderPath(baseDir, true);
   }
 
   public String sha1() throws InitializrException {
@@ -128,7 +135,6 @@ public class InitializrBean implements Serializable {
         groupId, artifactId, version, name, packageName, description, packaging, javaVersion);
   }
 
-
   String rebuild(String fileContent) {
 
     if (org.apache.commons.lang3.StringUtils.isNoneBlank(fileContent)) {
@@ -137,6 +143,7 @@ public class InitializrBean implements Serializable {
               .replace(GROUP_ID, this.groupId)
               .replace(ARTIFACT_ID, this.artifactId)
               .replace(VERSION, this.version)
+              .replace(PACKAGE_NAME, this.packageName)
               .replace(PROJECT_NAME, this.name);
     }
 

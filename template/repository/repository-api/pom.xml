@@ -24,7 +24,7 @@
         <!-- Normal libs -->
         <dependency>
             <groupId>com.acmedcare.framework</groupId>
-            <artifactId>${__artifactId__}-mybatis-support</artifactId>
+            <artifactId>${__artifactId__}-repository-mybatis-support</artifactId>
         </dependency>
 
         <dependency>

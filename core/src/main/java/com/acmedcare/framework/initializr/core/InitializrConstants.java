@@ -1,5 +1,9 @@
 package com.acmedcare.framework.initializr.core;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+
 /**
  * {@link InitializrConstants}
  *
@@ -9,6 +13,8 @@ package com.acmedcare.framework.initializr.core;
 public class InitializrConstants {
 
   private static final String HOME_ENV_PROPERTIES = "acmedcare.initializr.home";
+
+  public static final Integer ONCE = 1;
 
   /**
    * Home Properties Defined
@@ -21,8 +27,35 @@ public class InitializrConstants {
 
   public static final String PACKAGE_SUFFIX = ".zip";
 
+  public static final String[] SOURCE_DIRS_KEY = {"src/main/java", "src/test/java"};
+
   private static String home() {
     return InitializrConstants.home = System.getProperty(HOME_ENV_PROPERTIES);
+  }
+
+  public static boolean isSourceFile(String filePath) {
+    if (StringUtils.isNoneBlank(filePath)) {
+      for (String sourceDir : SOURCE_DIRS_KEY) {
+        if (filePath.contains(sourceDir)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public static String buildRightSourceFilePath(String originFilePath, String basePackage) {
+
+    String rightFilePath = originFilePath;
+
+    String packageDir = basePackage.replace(".", File.separator);
+
+    for (String sourceDir : SOURCE_DIRS_KEY) {
+      rightFilePath =
+          rightFilePath.replace(sourceDir, sourceDir.concat(File.separator).concat(packageDir));
+    }
+
+    return rightFilePath;
   }
 
   // === other system properties
