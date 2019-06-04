@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${__artifactId__}-api</artifactId>
+    <artifactId>${__artifactId__}-repository-api</artifactId>
 
     <name>Acmedcare+ Micro-services ${__name__} Project Repository Api Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Repository Api Module</description>
@@ -23,7 +23,7 @@
 
         <!-- Normal libs -->
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-repository-mybatis-support</artifactId>
         </dependency>
 

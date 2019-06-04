@@ -24,17 +24,17 @@
 
         <!-- Normal libs -->
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-repository-api</artifactId>
         </dependency>
 
@@ -65,7 +65,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.acmedcare.framework</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>${__artifactId__}-repository</artifactId>
                 <version>${project.version}</version>
                 <scope>import</scope>

@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${__artifactId__}-mybatis-support</artifactId>
+    <artifactId>${__artifactId__}-repository-mybatis-support</artifactId>
 
     <name>Acmedcare+ Micro-services ${__name__} Project Repository Mybatis Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Repository Mybatis Module</description>
