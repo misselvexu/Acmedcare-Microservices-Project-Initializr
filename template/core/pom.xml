@@ -30,12 +30,12 @@
 
         <!-- Module Libs -->
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.acmedcare.framework</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>${__artifactId__}-common</artifactId>
         </dependency>
 

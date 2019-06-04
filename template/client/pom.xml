@@ -17,8 +17,10 @@
 
 
     <modules>
+        <!--
         <module>spring-cloud-openfeign-client</module>
         <module>spring-cloud-openfeign-client-sample</module>
+        -->
     </modules>
 
     <properties>
@@ -28,6 +30,7 @@
 
 
     <dependencyManagement>
+        <!--
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -41,6 +44,7 @@
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
+        -->
     </dependencyManagement>
 
 
