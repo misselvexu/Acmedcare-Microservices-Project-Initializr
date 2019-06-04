@@ -12,6 +12,8 @@
     <artifactId>initializr-web</artifactId>
     <version>2.1.0.BUILD-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
+
     <name>Acmedcare+ Micro-services Project Initializr Website :: ${project.version}</name>
 
     <dependencies>
@@ -64,6 +66,16 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.56</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.acmedcare.framework</groupId>
+            <artifactId>exception-api</artifactId>
         </dependency>
 
     </dependencies>

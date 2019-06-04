@@ -22,13 +22,20 @@ public class TemplateFileProcessor {
   }
 
   /**
+   * Process Method
+   *
+   * @param bean init bean instance
+   * @return result
+   */
+  public InitializrResult process(InitializrBean bean) {
+
+    return null;
+  }
+
+  /**
    * Processor Worker
    *
    * <p>
    */
-  private static class Processor {
-
-
-
-  }
+  private static class Processor {}
 }

@@ -1,8 +1,15 @@
 package com.acmedcare.framework.initializr.core;
 
+import com.acmedcare.framework.initializr.exception.InitializrException;
 import lombok.*;
+import org.springframework.util.StringUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 /**
@@ -23,6 +30,7 @@ public class InitializrBean implements Serializable {
 
   private String groupId;
   private String artifactId;
+  private String version;
   private String name;
   private String packageName;
   private String description;
@@ -31,9 +39,35 @@ public class InitializrBean implements Serializable {
 
   // === methods
 
-  public String renderPath(String baseDir) {
-    // TODO
-    return null;
+  public String renderPath(String baseDir) throws InitializrException {
+
+    if (!StringUtils.endsWithIgnoreCase(baseDir, File.separator)) {
+      baseDir = baseDir.concat(File.separator);
+    }
+
+    String createdPath =
+        groupId
+            .replaceAll("\\.", File.separator)
+            .concat(File.separator)
+            .concat(artifactId)
+            .concat(File.separator)
+            .concat(version)
+            .concat(File.separator)
+            .concat(name);
+
+    String result = baseDir.concat(File.separator).concat(createdPath);
+
+    Path path = Paths.get(result);
+
+    if (!Files.exists(path)) {
+      try {
+        Files.createDirectory(path);
+      } catch (IOException e) {
+        throw new InitializrException("[INITIALIZR] create target dir failed .", e);
+      }
+    }
+
+    return result;
   }
 
   // === equals & hashcode
@@ -49,6 +83,7 @@ public class InitializrBean implements Serializable {
     InitializrBean that = (InitializrBean) o;
     return Objects.equals(groupId, that.groupId)
         && Objects.equals(artifactId, that.artifactId)
+        && Objects.equals(version, that.version)
         && Objects.equals(name, that.name)
         && Objects.equals(packageName, that.packageName)
         && Objects.equals(description, that.description)
@@ -59,6 +94,6 @@ public class InitializrBean implements Serializable {
   @Override
   public int hashCode() {
     return Objects.hash(
-        groupId, artifactId, name, packageName, description, packaging, javaVersion);
+        groupId, artifactId, version, name, packageName, description, packaging, javaVersion);
   }
 }
