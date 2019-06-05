@@ -1,6 +1,6 @@
 #!/bin/bash
-SERVICE_NAME=microservices-spring-cloud-app
-SERVICE_VERSION=2.1.1.BUILD-SNAPSHOT
+SERVICE_NAME=${__artifactId__}-distribution-spring-cloud-app
+SERVICE_VERSION=${__version__}
 # Copyright 1999-2018 Acmedcare+ Group Holding Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -89,7 +89,6 @@ fi
 if [ ! -f "${BASE_DIR}/logs/start.log" ]; then
   touch "${BASE_DIR}/logs/start.log"
 fi
-
 
 nohup ${JAVA} ${JAVA_OPT} > ${BASE_DIR}/logs/start.log 2>&1 &
 echo "Acmedcare+ Application Server is starting，you can check the ${BASE_DIR}/logs/start.log"

@@ -90,6 +90,5 @@ if [ ! -f "${BASE_DIR}/logs/start.log" ]; then
   touch "${BASE_DIR}/logs/start.log"
 fi
 
-
 nohup ${JAVA} ${JAVA_OPT} > ${BASE_DIR}/logs/start.log 2>&1 &
 echo "Acmedcare+ Application Server is starting，you can check the ${BASE_DIR}/logs/start.log"
