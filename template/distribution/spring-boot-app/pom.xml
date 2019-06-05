@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${__artifactId__}-spring-boot-app</artifactId>
+    <artifactId>${__artifactId__}-distribution-spring-boot-app</artifactId>
 
     <name>Acmedcare+ Micro-services ${__name__} Project Spring Boot Distribution Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ Spring Boot Distribution Module</description>

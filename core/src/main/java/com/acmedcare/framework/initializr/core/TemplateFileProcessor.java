@@ -79,13 +79,12 @@ public class TemplateFileProcessor {
     // check file is already exist
     String expectFilePath = bean.renderPath(createdZipDir);
 
-    String projectFilePath = bean.renderPath(createdZipDir, false);
+    String projectFilePath = bean.renderPath(createdZipDir);
 
     String fileName = bean.getName().concat(PACKAGE_SUFFIX);
 
-    String expectZipFileFullPath = expectFilePath.concat(PACKAGE_SUFFIX);
-
-    String projectFileFullPath = projectFilePath.concat(PACKAGE_SUFFIX);
+    String projectFileFullPath =
+        projectFilePath.concat(File.separator).concat(fileName).concat(PACKAGE_SUFFIX);
 
     Path expectProjectFilePath = Paths.get(projectFileFullPath);
 
