@@ -7,7 +7,7 @@
     <property name="FILE_LOG_PATTERN" value="[%-5level] ${PID} %date --%thread-- [%logger] %msg %n"/>
 
     <!-- From Spring Boot Default Logger-->
-    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}${__artifactId__}-boot-app.log}"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}${__artifactId__}-cloud-app.log}"/>
     <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
     <contextName>${log.context.name}</contextName>
