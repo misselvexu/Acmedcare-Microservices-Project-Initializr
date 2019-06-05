@@ -2,7 +2,7 @@
 # Build with:
 # docker build -t ${__artifactId__}-distribution-spring-boot-app .
 # Run with:
-# docker run -p 9090:9090 -d -v /tmp/logs:/opt/logs --name ${__artifactId__}-distribution-spring-boot-app ${__artifactId__}-distribution-spring-boot-app
+# docker run -p ${__server.port__}:${__server.port__} -d -v /tmp/logs:/opt/logs --name ${__artifactId__}-distribution-spring-boot-app ${__artifactId__}-distribution-spring-boot-app
 
 FROM openjdk:8-jre-alpine
 MAINTAINER Elve.Xu <iskp.me@gmail.com>
@@ -23,6 +23,6 @@ RUN unzip /${__artifactId__}-distribution-spring-boot-app/${__artifactId__}-dist
     && sed -i '$d' /${__artifactId__}-distribution-spring-boot-app/bin/startup.sh \
     && echo "tail -f /dev/null" >> /${__artifactId__}-distribution-spring-boot-app/bin/startup.sh
 
-EXPOSE 9090
+EXPOSE ${__server.port__}
 
 CMD ["/${__artifactId__}-distribution-spring-boot-app/bin/startup.sh"]

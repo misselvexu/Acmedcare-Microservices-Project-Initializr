@@ -43,6 +43,14 @@ public class InitializrBean implements Serializable {
   private String packaging;
   private String javaVersion;
 
+  // extension properties
+
+  private int serverPort;
+  private String dbHost;
+  private String dbName;
+  private String dbUser;
+  private String dbPassword;
+
   private transient CountDownLatch waitLatch;
 
   // === methods
@@ -144,7 +152,12 @@ public class InitializrBean implements Serializable {
               .replace(ARTIFACT_ID, this.artifactId)
               .replace(VERSION, this.version)
               .replace(PACKAGE_NAME, this.packageName)
-              .replace(PROJECT_NAME, this.name);
+              .replace(PROJECT_NAME, this.name)
+              .replace(SERVER_PORT, String.valueOf(this.serverPort))
+              .replace(DATABASE_HOST, this.dbHost)
+              .replace(DATABASE_NAME, this.dbName)
+              .replace(DATABASE_USERNAME, this.dbUser)
+              .replace(DATABASE_PASSWORD, this.dbPassword);
     }
 
     return fileContent;

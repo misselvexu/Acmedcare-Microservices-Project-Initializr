@@ -68,11 +68,16 @@ public class InitializrEndpoint {
       @RequestParam(defaultValue = "") String version,
       @RequestParam(defaultValue = "demo") String name,
       @RequestParam(defaultValue = "com.acmedcare.framework.microservices.demo") String packageName,
+      @RequestParam(required = false, defaultValue = "0") int serverPort,
+      @RequestParam(defaultValue = "127.0.0.1:3306") String dbHost,
+      @RequestParam(defaultValue = "db") String dbName,
+      @RequestParam(required = false, defaultValue = "root") String dbUser,
+      @RequestParam(required = false, defaultValue = "") String dbPassword,
       @RequestParam(required = false, defaultValue = "") String description,
       @RequestParam(required = false, defaultValue = "jar") String packaging,
       @RequestParam(required = false, defaultValue = "1.8") String javaVersion) {
 
-    if (StringUtils.isAnyBlank(groupId, artifactId, version, name, packageName)) {
+    if (StringUtils.isAnyBlank(groupId, artifactId, version, name, packageName, dbHost, dbName)) {
       throw new InvalidRequestParamException(
           "请求参数[groupId, artifactId, version, name, packageName]不能为空");
     }
@@ -87,6 +92,11 @@ public class InitializrEndpoint {
             .description(description)
             .packaging(packaging)
             .javaVersion(javaVersion)
+            .serverPort(serverPort)
+            .dbHost(dbHost)
+            .dbName(dbName)
+            .dbUser(dbUser)
+            .dbPassword(dbPassword)
             .build();
 
     log.info("Request initializr bean info : {}", JSON.toJSONString(bean));

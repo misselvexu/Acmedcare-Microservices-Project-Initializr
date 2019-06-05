@@ -102,5 +102,40 @@ public class InitializrConstants {
      * <p>
      */
     public static final String PROJECT_NAME = "${__name__}";
+
+    /**
+     * Server Port
+     *
+     * <p>
+     */
+    public static final String SERVER_PORT = "${__server.port__}";
+
+    /**
+     * Database Host
+     *
+     * <p>
+     */
+    public static final String DATABASE_HOST = "${__db.host__}";
+
+    /**
+     * Database Name
+     *
+     * <p>
+     */
+    public static final String DATABASE_NAME = "${__db.name__}";
+
+    /**
+     * Database Username
+     *
+     * <p>
+     */
+    public static final String DATABASE_USERNAME = "${__db.username__}";
+
+    /**
+     * Database Password
+     *
+     * <p>
+     */
+    public static final String DATABASE_PASSWORD = "${__db.password__}";
   }
 }
