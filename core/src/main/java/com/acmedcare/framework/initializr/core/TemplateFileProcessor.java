@@ -84,7 +84,7 @@ public class TemplateFileProcessor {
     String fileName = bean.getName().concat(PACKAGE_SUFFIX);
 
     String projectFileFullPath =
-        projectFilePath.concat(File.separator).concat(fileName).concat(PACKAGE_SUFFIX);
+        projectFilePath.concat(File.separator).concat(fileName);
 
     Path expectProjectFilePath = Paths.get(projectFileFullPath);
 
