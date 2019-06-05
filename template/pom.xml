@@ -255,6 +255,12 @@
 
             <dependency>
                 <groupId>com.acmedcare.framework</groupId>
+                <artifactId>spring-boot-starter-fastjson</artifactId>
+                <version>2.1.0-RC1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.acmedcare.framework</groupId>
                 <artifactId>exception-api</artifactId>
                 <version>2.2.0-RC1</version>
             </dependency>

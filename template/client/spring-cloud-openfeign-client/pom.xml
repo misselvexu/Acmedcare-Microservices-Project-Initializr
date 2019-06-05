@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>${__artifactId__}-openfeign-client</artifactId>
-    <version>2.1.1.BUILD-SNAPSHOT</version>
 
     <name>Acmedcare+ Micro-services ${__name__} Project OpenFeign Client Module :: ${project.version}</name>
     <description>🏗 Acmedcare+ OpenFeign Client Module</description>

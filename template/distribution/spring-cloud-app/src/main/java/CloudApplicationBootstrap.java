@@ -1,12 +1,13 @@
 package ${__package__};
 
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import xyz.vopen.tiffany.swagger.EnableSwagger2;
 
 /**
- * {@link BootApplicationBootstrap}
+ * {@link CloudApplicationBootstrap}
  *
  * @author <a href="mailto:iskp.me@gmail.com">Elve.Xu</a>
  * @version ${project.version} - 2019-03-12.
